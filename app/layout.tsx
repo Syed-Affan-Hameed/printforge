@@ -45,7 +45,7 @@ export default function RootLayout({
                             alt="PrintForge Community - A group of makers collaborating on 3D printing projects"
                             width={742}
                             height={742}
-                              className="w-[200px] h-auto hidden md:block"       />
+                            className="w-[200px] h-auto hidden md:block" />
               {/* Mobile logo */}
               <img
                 src="/printforge-logo-icon.svg"
