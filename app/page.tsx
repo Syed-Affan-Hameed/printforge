@@ -1,4 +1,5 @@
-
+import Image from "next/image"
+import homeScreenImage from "@/public/homescreen_image.png"
 export default function Home() {
   return (
     <main>
@@ -23,7 +24,12 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <img  src="/homescreen_image.png" width={350} />
+        <Image
+          src={homeScreenImage}
+         alt="Home screen"
+         width={800}   // native/intrinsic width (use actual file width if known)
+         height={600}  // native/intrinsic height (use actual file height)
+       className="w-[350px] h-auto rounded-lg"/>
       </section>
     </main>
   )

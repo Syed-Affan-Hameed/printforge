@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google";
-import Image from "next/image"
-import heroImage from "@/public/aboutscreen_image.png"
+import Image from "next/image";
+import Link from "next/link";
+import heroImage from "@/public/aboutscreen_image.png";
+import printForgeLogoIcon from "@/public/printforge-logo-icon.svg"
+import printForgeLogo from "@/public/printforge-logo.svg"
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
@@ -33,34 +36,38 @@ export default function RootLayout({
       >
         <header className="w-full bg-white">
           <nav className="flex justify-between px-6 py-4">
-            <div className="relative">
+            <div className="relative cursor-pointer">
               {/* Desktop logo */}
-              <img
-                src="/printforge-logo.svg"
-                alt="PrintForge Logo"
+               {/* Since we are using the Image Component from nextjs instead of html <img> 
+               the height & width we provide here are the original dimensions of the image*/}
+              <Image
+                src={printForgeLogo}
+                alt="PrintForge Community - A group of makers collaborating on 3D printing projects"
+                width={100}
+                height={100}
                 className="w-[200px] h-auto hidden md:block"
               />
-                <Image
-                            src={heroImage}
-                            alt="PrintForge Community - A group of makers collaborating on 3D printing projects"
-                            width={742}
-                            height={742}
-                            className="w-[200px] h-auto hidden md:block" />
               {/* Mobile logo */}
-              <img
-                src="/printforge-logo-icon.svg"
-                alt="PrintForge Logo"
+              <Image
+                src={printForgeLogoIcon}
+                alt="PrintForge Community - A group of makers collaborating on 3D printing projects"
+                width={100}
+                height={100}
                 className="w-[40px] h-auto block md:hidden"
               />
             </div>
             <ul className="flex items-center gap-2.5">
-              <p>3D Models</p>
-              <p>About</p>
+               <li className="text-sm uppercase cursor-pointer">
+                <Link href="/3d-models">3D Models</Link>
+              </li>
+              <li className="text-sm uppercase cursor-pointer">
+                <Link href="/about">About</Link>
+              </li>
             </ul>
           </nav>
         </header>
+        {/* In the childern the page.tsx gets rendered*/ }
         {children}
-
         <footer>
           <ul>
             <li>Email</li>
